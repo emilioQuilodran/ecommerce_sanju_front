@@ -39,29 +39,25 @@ function App() {
       path: '/signup',
       element: <Register />
     },
+    
     { 
       path: '/login',
       element: <Login />
     },
     { 
-      path: 'products',
-      element: <Products />,
-      children: [
-        { path: 'products/:id', element: <ProductsDetail /> }
-      ]
+      path: 'products/:id',
+      element: <ProductsDetail />
     },
     {
       path: 'dashboard',
-      element: <Dashboard />,
-      children: [
-        {
-          path: 'dashboard/add-product',
-          element: <AddProduct />
-        }
-      ]
+      element: <Dashboard />
     },
     {
-      path: 'shopping-cart',
+      path: 'dashboard/add-product',
+      element: <AddProduct />
+    },
+    {
+      path: '/shopping-cart',
       element: <ShoppingCart />
     },
     {

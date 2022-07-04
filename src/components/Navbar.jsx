@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import {get} from '../api/index'
 import {authContext} from '../Context/AuthContext';
+import { MdOutlineShoppingCart } from "react-icons/md"
+import { FaUserCircle } from "react-icons/fa"
 
 const Navbar = () => {
     const {user, logged, setUser} = useContext(authContext);
@@ -52,7 +54,7 @@ const Navbar = () => {
                   <Link className="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" to="/">Home</Link>
                 </li>
                 <li className="nav-item mb-2 lg:mb-0">
-                  <Link className="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" to="/about">About</Link>
+                  <Link className="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" to="/dashboard">Dashboard</Link>
                 </li>
                 {
                   !logged?<>
@@ -66,7 +68,7 @@ const Navbar = () => {
                   <>
                       <li className="nav-item">
                         <p className="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out">
-                          {user.name}
+                          <FaUserCircle className='inline-block' /> {user.name}
                         </p>
                       </li>
                       <li className="nav-item">
@@ -79,7 +81,15 @@ const Navbar = () => {
                   </>
                 }
               </ul>
+              {
+                logged ? <>
+                  <Link to="/shopping-cart" ><MdOutlineShoppingCart style={{fontSize: '20px'}} /></Link>
+                </>: <></>
+              }
             </div>
+          </div>
+          <div>
+            <img className='w-28' src='/logo.jpg' alt="sanju store"></img>
           </div>
         </nav>
         
